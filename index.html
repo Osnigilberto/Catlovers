@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <div id="page" class="flex">
+    <div>
+      <header><img src="./assets/logocatlovers.png" alt=""></header>
+      <main>
+        <h1>Acesse a plataforma</h1>
+        <p>
+          Faça login ou registre-se para começar a construir seus projetos ainda hoje.
+        </p>
+
+        <form id="loginForm" action="feed.html" method="get" onsubmit="return validateForm()">
+          <!-- botão Login/conectar -->
+          <div class="input-wrapper">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="Digite seu e-mail" onblur="validateEmail()" />
+            <small class="error" id="emailError"></small> <!-- Mensagem de erro -->
+
+
+          </div>
+
+          <div class="input-wrapper">
+
+            <!-- botão senha-->
+            <div class="input-wrapper">
+              <div class="label-wrapper">
+                <label for="senha">Senha</label>
+                <a href="#"> Esqueceu a senha? </a>
+              </div>
+              <!--minlength="6" title="Aumente este texto para 6 caracteres ou mais."-->
+              <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required onblur="validatePassword()" />
+              <!--esconder e mostrar senha-->
+              <img onclick="togglePassword()" class="eye" src="./assets/eye-off.svg" alt="">
+              <img onclick="togglePassword()" class="eye hide" src="./assets/eye.svg" alt="">
+              <small class="error" id="senhaError"></small> <!-- Mensagem de erro -->
+            </div>
+
+          </div>
+          <form action="feed.html" method="get">
+
+            <button type="submit">Entrar</button>
+
+          </form>
+
+          <!-- criar conta -->
+          <div class="create-account">
+            Ainda não tem uma conta?
+            <a href="#">Crie uma agora!</a>
+          </div>
+        </form>
+      </main>
+    </div>
+    <img src="./assets/bg.jpg" alt=" " />
+  </div>
+
+
+  <!-- JS DOM -->
+
+  <script>
+    // função para mostrar/ocultar senha
+    function togglePassword() {
+      document.querySelectorAll(".eye").forEach((eye) => eye.classList.toggle('hide'))
+
+      // if/else feito no modo ternario.
+
+      const type = senha.getAttribute('type') == 'password' ? "text" : "password"
+      senha.setAttribute('type', type);
+
+
+      /* 
+ 
+      if (senha.getAttribute('type') == 'password') {
+        senha.setAttribute('type', 'text');
+      } else {
+        senha.setAttribute('type', 'password');
+      } */
+    }
+
+
+
+  </script>
+
+  <script src="./script.js"></script>
+
+
+</body>
+
+</html>

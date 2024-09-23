@@ -1,0 +1,286 @@
+/*resetando o estilo de todos elementos.
+  todos elementos da pagina.*/
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Titillium Web", sans-serif;
+    box-sizing: border-box; /*medida de ponta a ponta*/
+    -webkit-font-smoothing: antialiased; /*suavizando as fontes*/
+    -moz-osx-font-smoothing: grayscale; /*suavizando as fontes*/
+  }
+  
+  /*aqui começa a pegar o html.
+  para achar o rem da pagina tem que pegar o valor do pixel e dividir por 10.
+  10px equivale a 1rem.
+  EX: (16px/ 10=1.6rem )
+  
+  */
+  :root {
+    font-size: 62.5%;
+    font-family: "Titillium Web", sans-serif;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    background-color: #efefef;
+  
+  }
+  
+  /*imagem ao lado direito*/
+  #page {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  /*classe utilitaria, significa que tera somente uma propriedade */
+  .flex {
+    display: flex;
+  }
+  
+  /*Os dois filhos esquerdo/direita*/
+  #page > * {
+    width: 50%;
+  }
+  
+  /*imagem  ao lado direito da pagina inicial*/
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o elemento sem distorção */
+  }
+  
+  /*Medidas da logo. */
+  header img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+  }
+  
+  /*Informações de acesso.*/
+  #page > div {
+    padding: 4rem 11.2rem;
+  }
+  /*Distancia da logo para a caixa de acesso*/
+  main {
+    margin-top: 0.4rem;
+    max-width: 38.4rem;
+  }
+  /*Acesso a plataforma e txt abaixo dela*/
+  .headline {
+    max-width: 35rem;
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 55px;
+    color: #1e293b;
+  }
+  
+  h1 + p {
+    color: #475569;
+    margin-top: 1.6rem;
+  }
+  
+  form {
+    margin-top: 4rem;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1e293b;
+  }
+  
+  .label-wrapper {
+    justify-content: space-between;
+  }
+  
+  .label-wrapper label + a {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    float: right;
+  }
+  
+  input::placeholder {
+    font-size: 14px;
+    line-height: 21px;
+    color: #475569;
+  }
+  
+  /*botão de login*/
+  input {
+    width: 100%;
+    background: whitesmoke;
+    padding: 1.6rem 1.2rem;
+    border: 0.1rem;
+    border-radius: 50px;
+    margin-top: 0.8rem;
+    color: #1e293b;
+  }
+  
+  /*separação de input*/
+  .input-wrapper + input {
+    margin-top: 1.6rem;
+  }
+  
+  input:focus,
+  input:hover {
+    border: 0.1rem solid #1e293b;
+    outline: 0;
+  }
+  
+  input:disabled {
+    opacity: 0.35;
+  }
+  
+  ::-ms-reveal {
+    display: none;
+  }
+  /*esconde e mostra*/
+  .eye {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 59%;
+    left: 94%;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  button {
+    all: unset; /*acessibilidade*/
+    box-sizing: border-box;
+    font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 700;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /*estilo do botão de login*/
+  form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem 2.4rem;
+    background: yellow;
+    border-radius: 50px;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    margin-block: 1.6rem;
+  }
+  
+  /*estilo do input de email*/
+  form button:focus {
+    outline: 2px solid black;
+    border-radius: 50px;
+  }
+  
+  form button:hover {
+    background: yellowgreen;
+    line-height: 24px;
+  }
+  
+  .create-account {
+    color: #1e293b;
+  }
+  
+  /* Para telas menores que 768px */
+  @media (max-width: 600px) {
+    /* Remove a imagem lateral */
+    #page > img {
+      display: none;
+    }
+  
+    /* O conteúdo ocupa 100% da largura */
+    #page > div {
+      width: 100%;
+      padding: 1.5rem;
+    }
+  
+    main {
+      margin-top: 3rem; /* Reduz a margem entre a logo e o conteúdo principal */
+      max-width: 100%;
+    }
+  
+    /* Mantém a logo em um tamanho apropriado para telas menores */
+    header img {
+      width: auto; /* Reduz um pouco mais a logo */
+      height: auto;
+    }
+  
+    h1 {
+      font-size: 20px; /* Reduz o tamanho do título */
+      line-height: 30px;
+    }
+  
+    p,
+    label,
+    a {
+      font-size: 12px; /* Texto mais compacto */
+    }
+  
+    form button {
+      padding: 1.2rem 1.8rem; /* Botão menor e mais compacto */
+      font-size: 1.2rem;
+    }
+  
+    /* Ajusta a posição do ícone de olho no campo de senha */
+    .eye {
+      left: 88%; /* Ajuste fino da posição do ícone de mostrar/ocultar senha */
+    }
+  }
+  
+  /* Estilo para as mensagens de erro */
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.5rem;
+    display: none; /* Inicialmente oculto */
+  }
+  
+  /* Para telas ainda menores, como smartphones pequenos (até 480px) */
+  @media (max-width: 480px) {
+    #page img {
+      display: none; /* Esconde a imagem em telas menores */
+    }
+  
+    /* Ajusta o padding para não ocupar muito espaço em telas menores */
+    #page > div {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    /* Remove as regras de redimensionamento da logo em telas menores */
+    header img {
+      width: auto; /* Mantém a largura original */
+      height: auto; /* Mantém a altura original */
+    }
+  
+    h1 {
+      font-size: 20px; /* Ajuste adicional do tamanho da fonte */
+    }
+  
+    form button {
+      font-size: 1.2rem;
+      padding: 1.2rem;
+    }
+  }
+  
+  /*         fim da pagina login         */
+  
+  

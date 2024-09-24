@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+  box-sizing: border-box; /*medida de ponta a ponta*/
+  -webkit-font-smoothing: antialiased; /*suavizando as fontes*/
+  -moz-osx-font-smoothing: grayscale; /*suavizando as fontes*/
+}
+body{
+  display: flex;
+  min-height: 100vh;
+  background-color: #efefef;
+}
+main{
+  padding: 20px;
+}
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  height:fixed;
+  border-radius: 0px 18px 18px 0px;
+  position: relative;
+  transition: all .5s;
+  min-width: 82px;
+}
+#siderbar_content{
+  padding: 12px;
+}
+#user{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+#user_avatar{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#user_infos{
+  display: flex;
+  flex-direction: column;
+}
+#user_infos span :last-child{
+  color: #efefef;
+  font-size: 14px;
+}
+#side_items{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+.side-item{
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+}
+.side-item.active{
+  background-color: #1e293b;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover{
+  background-color: #1e293b;
+}
+.side-item a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.side-item.active a{
+  color: black;
+}
+.side-item a i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+#logout{
+  border-top: 1px solid #1e293b;
+  padding: 12px;
+}
+#logout_btn{
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 50%;
+  text-align: start;
+  cursor: pointer;
+  background-color: #1e293b;
+}
+#open_btn{
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+#open_btn_icon{
+  transition: transform .3s ease;
+}
+.open-sidebar #open_btn_icon{
+  transform: rotate(90deg);
+  
+}
+.item-description{
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.5s ease;
+}
+#sidebar.open-sidebar{
+  min-width: 15%;
+}
+#sidebar.open-sidebar.item-description{
+  width: 100%;
+}
+#sidebar.open-sidebar.side-item a{
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+/* Responsive design */

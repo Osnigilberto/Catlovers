@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catlovers</title>
+  <title>Catlovers - Feed</title>
+  <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
   <link rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="feed.css" />
@@ -80,13 +81,129 @@
     </div>
   </nav>
 
-  <main>
-    <img src="assets/logocatlovers.png">
-    <h1>Catlovers</h1>
+  <main class="main">
+    <div class="wrapper">
+      <div class="main-center">
+        <!--STORIES-->
+        <div class="stories-wrapper">
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-1.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-2.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-3.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-1.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-2.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+
+          <div class="stories-card">
+            <div class="profile-pic">
+              <img src="assets/profile-3.jpeg" alt="" />
+            </div>
+            <p class="username"> username </p>
+          </div>
+        </div>
+
+        <!--POST-->
+
+        <div class="post">
+          <div class="info">
+            <div class="user">
+              <div class="profile-pic">
+                <img src="assets/avatar.png" alt="" />
+              </div>
+              <p class="username">BomBom</p>
+            </div>
+            <i class="fas fa-ellipsis-h options"></i>
+          </div>
+          <img src="assets/catimage.jpeg" class="post-image" />
+          <div class="post-content">
+            <div class="reaction-wrapper">
+              <i class="icon fas fa-heart"></i>
+              <i class="icon fas fa-comment"></i>
+            </div>
+            <p class="likes"> 4,200 likes</p>
+            <p class="description"><span>BomBom</span>Eu e meu amor antes do problema acontecer...</p>
+            <p class="post-time">09/25/2024</p>
+          </div>
+          <div class="comment-wrapper">
+            <img src="assets/avatar.png" class="icon">
+            <input type="text" class="comment-box" placeholder="Add a coment">
+            <button class="comment-btn">Post</button>
+          </div>
+
+          <div class="post">
+            <div class="info">
+              <div class="user">
+                <div class="profile-pic">
+                  <img src="assets/avatar.png" alt="" />
+                </div>
+                <p class="username">BomBom</p>
+              </div>
+              <i class="fas fa-ellipsis-h options"></i>
+            </div>
+            <img src="assets/catimage1.jpeg" class="post-image" />
+            <div class="post-content">
+              <div class="reaction-wrapper">
+                <i class="icon fas fa-heart"></i>
+                <i class="icon fas fa-comment"></i>
+              </div>
+              <p class="likes"> 1,200 likes</p>
+              <p class="description"><span>BomBom</span>Eu amo fazer cocegas nele *-* </p>
+              <p class="post-time">09/21/2024</p>
+            </div>
+            <div class="comment-wrapper">
+              <img src="assets/avatar.png" class="icon">
+              <input type="text" class="comment-box" placeholder="Add a coment">
+              <button class="comment-btn">Post</button>
+            </div>
+
+          </div>
+        </div>
+
   </main>
+
+  <div class="right-col">
+    <div class="profile-card">
+      <div class="profile-pic">
+        <img src="assets/profile-1.jpeg" alt="" />
+      </div>
+      <p class="username">username</p>
+      <p class="sub-text">Eu gosto de gatos.</p>
+    </div>
+    <button class="logout-btn">logout</button>
+  </div>
+
+
+
+
   <script>
     //open btn menu
-
     document.getElementById('open_btn').addEventListener('click', function () {
       document.getElementById('sidebar').classList.toggle('open-sidebar');
     });

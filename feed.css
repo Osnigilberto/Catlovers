@@ -20,10 +20,17 @@ main{
   margin-top: 0px;
 }
 .wrapper{
-  width: 70%;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: 100%;
+
+  /*width: 70%;
   max-width: 1000px;
   display: flex;
-  /*grid-template-columns: 60% 50%;
+  justify-content: center;
+  grid-template-columns: 60% 50%;
   grid-gap: 30px;*/
 }
 .main-center{
@@ -43,6 +50,7 @@ main{
   align-items: center;
   overflow: hidden;
   overflow-x: auto;
+  margin-top: 20px;
 }
 .stories-wrapper::-webkit-scrollbar{
   display: none;
@@ -163,7 +171,9 @@ main{
   outline: none;
   font-size: 14px;
 }
-.comment-btn{
+.comment-btn,
+.logout-btn,
+.follow-btn{
   width: 70px;
   height: 100%;
   background: none;
@@ -188,12 +198,17 @@ main{
 }
 
 /*SIDEBAR DIREITA*/
-.right-col{
+.topo-wrapper{
   padding: 20px;
-  width: 500px;
+  width: 100%;
+  height: 100px;
   background-color: #fff;
+  margin-top: 20px;
+  display: flex;
+  
 }
-.profile-card{
+.profile-card,
+.suggestion-card{
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -206,32 +221,98 @@ main{
   background: none;
   width: 50px;
   height: 50px;
+  margin-right: 10px;
 }
 .profile-card .profile-pic img{
   border: none;
+  
 }
-.profile-card .username{
+.profile-card .username,
+.suggestion-card .username{
   font-weight: 500px;
   font-size: 14px;
   color: #000;
+  margin-bottom: 0;
 }
-.profile-card .sub-text{
+.profile-card .sub-text,
+.suggestion-card .sub-text{
   color: #000;
   font-size: 12px;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 2px;
+  margin-bottom: 0;
 }
-.logout-btn{
+.logout-btn,
+.follow-btn{
+  opacity: 1;
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 20px;
+}
+.publicar-btn{
   opacity: 1;
   font-weight: 700;
   font-size: 12px;
   color: rgba(0,0,0,0.5);
   cursor: pointer;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 15px;
+  margin-left: 50px;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  width: 100px;
+  height: 20px;
+}
+.suggestion-card .suggestion-pic{
+  flex: 0 0;
+  padding: 0;
+  background: none;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.suggestion-card .suggestion-pic img{
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.suggestion-text{
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  font-weight: 700;
+  margin: 20px;
+}
+
+.search-bar{
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.search-bar input{
+  width: 50%;
+  padding: 0 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #000;
+  margin-left: 10px;
+  border-radius: 30px;
+  border: 2px solid rgba(0,162,255);
+  transition: all .2s ease-in-out;
 }
 
 
@@ -241,7 +322,7 @@ main{
   flex-direction: column;
   justify-content: space-between;
   background-color: #f8f9fa;
-  height:fixed;
+  height:450px;
   border-radius: 0px 18px 18px 0px;
   position: relative;
   transition: all .5s;
@@ -361,4 +442,90 @@ main{
   gap: 14px;
 }
 
-/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    display: flex;
+  }
+
+  main {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0px;
+  }
+  .topo-wrapper{
+    height: 50px;
+    margin-top: 10px;
+  }
+  .profile-card{
+    height: 100px;
+    margin-top: 10px;
+    width: 50px;
+    align-items: center;
+  }
+
+  .stories-wrapper {
+    height: 100px;
+    margin-top: 15px;
+  }
+
+  .stories-card {
+    width: 60px;
+    max-width: 60px;
+    margin-right: 10px;
+  }
+
+  
+
+  .post {
+    height: auto;
+    margin-top: 15px;
+  }
+
+  .post-image {
+    height: 265px;
+  }
+  .post-content{
+    height: auto;
+    margin-top: 10px;
+  }
+  .info, .username{
+    height: 40px;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  .reaction-wrapper{
+    margin-top: 15px;
+    height: 0;
+  }
+  .likes{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+  }
+
+  .info .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .comment-wrapper {
+    height: 40px;
+  }
+
+  .comment-box {
+    font-size: 12px;
+  }
+
+  .reaction-wrapper {
+    margin-top: -15px;
+  }
+}

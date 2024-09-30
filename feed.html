@@ -172,6 +172,54 @@
     });
 
 
+    //criar post
+    app.post('/posts', async (req, res) => {
+      const { userId, content } = req.body;
+
+      try {
+        const result = await pool.query(
+          'INSERT INTO posts (user_id, content) VALUES ($1, $2) RETURNING *',
+          [userId, content]
+        );
+        res.status(201).json(result.rows[0]);
+      } catch (err) {
+        res.status(500).json({ error: 'Erro ao criar o post.' });
+      }
+    });
+
+    //Adicionar amigo
+    app.post('/add-friend', async (req, res) => {
+      const { userId, friendId } = req.body;
+
+      try {
+        await pool.query(
+          'INSERT INTO friendships (user_id, friend_id, status) VALUES ($1, $2, $3)',
+          [userId, friendId, 'pending']
+        );
+        res.status(201).json({ message: 'Solicitação de amizade enviada.' });
+      } catch (err) {
+        res.status(500).json({ error: 'Erro ao adicionar amigo.' });
+      }
+    });
+
+    //Aceitar amizade
+    app.post('/accept-friend', async (req, res) => {
+      const { userId, friendId } = req.body;
+
+      try {
+        await pool.query(
+          'UPDATE friendships SET status = $1 WHERE user_id = $2 AND friend_id = $3',
+          ['accepted', friendId, userId]
+        );
+        res.status(200).json({ message: 'Amizade aceita.' });
+      } catch (err) {
+        res.status(500).json({ error: 'Erro ao aceitar amizade.' });
+      }
+    });
+
+
+
+
 
   </script>
 </body>

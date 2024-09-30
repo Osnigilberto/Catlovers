@@ -80,10 +80,10 @@ body {
   border-radius: 10px;
 }
 .input-group{
-  display: flex;
+  display: contents;
   flex-wrap: wrap;
   justify-content: space-between;
-  
+  position: fixed;
   margin-bottom: 5rem;
   align-items: center;
   align-self: center;

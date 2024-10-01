@@ -1,0 +1,326 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+  box-sizing: border-box; /*medida de ponta a ponta*/
+  -webkit-font-smoothing: antialiased; /*suavizando as fontes*/
+  -moz-osx-font-smoothing: grayscale; /*suavizando as fontes*/
+}
+
+body{
+  display: flex;
+  min-height: 100vh;
+  background-color: #efefef;
+}
+
+/*SIDEBAR LATERAL ESQUERDO*/
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  height:330px;
+  border-radius: 0px 18px 18px 0px;
+  position: relative;
+  transition: all .5s;
+  min-width: 82px;
+  margin-top: 40px;
+}
+#siderbar_content{
+  padding: 12px;
+}
+#user{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+#user_avatar{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#user_infos{
+  display: flex;
+  flex-direction: column;
+}
+#user_infos span :last-child{
+  color: #efefef;
+  font-size: 14px;
+}
+#side_items{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+.side-item{
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+}
+.side-item.active{
+  background-color: #1e293b;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover{
+  background-color: #1e293b;
+}
+.side-item a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.side-item.active a{
+  color: black;
+}
+.side-item a i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+#logout{
+  border-top: 1px solid #1e293b;
+  padding: 12px;
+}
+#logout_btn{
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 50%;
+  text-align: start;
+  cursor: pointer;
+  background-color: #1e293b;
+}
+#open_btn{
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+#open_btn_icon{
+  transition: transform .6s ease;
+}
+.open-sidebar #open_btn_icon{
+  transform: rotate(360deg);
+  
+}
+.item-description{
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.5s ease;
+}
+#sidebar.open-sidebar{
+  min-width: 15%;
+}
+#sidebar.open-sidebar.item-description{
+  width: 100%;
+}
+#sidebar.open-sidebar.side-item a{
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+/* Botão de editar foto */
+.edit-photo-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-photo-btn i {
+  font-size: 16px; /* Ícone de mais (+) */
+}
+
+/* Efeito de hover no botão */
+.edit-photo-btn:hover {
+  background-color: #0056b3;
+}
+
+.username {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bio {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 18px;
+  color: #333;
+}
+
+.stat span {
+  font-size: 12px;
+  color: #888;
+}
+
+.profile-actions {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.profile-posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Define 3 colunas na grid */
+  gap: 15px;
+  height: auto;
+}
+
+.post {
+  background-color: #f0f2f5;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: auto;
+}
+
+.post:hover {
+  background-color: #e9ecef;
+}
+
+.post img {
+  width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Corta a imagem para preencher o contêiner, se necessário */
+}
+
+
+/* Navegação entre seções do perfil */
+.profile-nav {
+  margin-top: 20px;
+}
+
+.profile-nav ul {
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center; /* Alinha os itens ao centro */
+  gap: 15px; /* Espaço entre os links */
+}
+
+.profile-nav li {
+  display: inline;
+}
+
+.profile-nav a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.profile-nav .active a {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-nav a:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Conteúdo das seções do perfil */
+.profile-content {
+  margin-top: 20px;
+}
+
+.content-section {
+  display: none; /* Esconde todas as seções por padrão */
+}
+
+.content-section.active {
+  display: block; /* Exibe a seção ativa */
+}
+
+

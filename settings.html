@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catlovers - Feed</title>
+  <title>Catlovers - Settings</title>
   <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
   <link rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="feed.css" />
+  <link rel="stylesheet" href="settings.css" />
 </head>
 
 <body>
@@ -17,7 +17,11 @@
     <div class="sidebar_content">
 
       <div class="user">
-        <a href="profile.html"><img src="./assets/avatar.png" id="user_avatar" alt="Avatar" /></a>
+        <label for="file-input">
+          <img src="./assets/avatar.png" id="user_avatar" alt="Avatar" />
+        </label>
+        <input type="file" id="file-input" accept="image/*" style="display: none;">
+
         <p id="user_infos">
           <span class="item-description"></span>
           <span class="item-description">catlovers@example.com</span>
@@ -63,3 +67,153 @@
     </button>
 
   </nav>
+
+  <div class="settings-container">
+    <h1>Configurações do Perfil</h1>
+
+    <form id="settingsForm">
+      <label for="username">Nome de usuário:</label>
+      <input type="text" id="username" name="username" value="">
+      <span id="username-error" class="error-message"></span>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="">
+      <span id="email-error" class="error-message"></span>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" value="">
+      <span id="password-error" class="error-message"></span>
+      <label for="confirm-password">Confirmar Senha:</label>
+      <input type="password" id="confirm-password" name="confirm-password" value="">
+
+
+      <label for="bio">Biografia:</label>
+      <textarea id="bio" name="bio"></textarea>
+
+
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+    <div id="successMessage" class="success-message">Alterações salvas com sucesso!</div>
+
+  </div>
+  <script>
+    // Obtém o elemento de entrada de arquivo e a imagem do avatar
+    const fileInput = document.getElementById('file-input');
+    const userAvatar = document.getElementById('user_avatar');
+
+    // Carrega a imagem do avatar armazenada, se existir
+    window.onload = function () {
+      const storedAvatar = localStorage.getItem('userAvatar');
+      if (storedAvatar) {
+        userAvatar.src = storedAvatar; // Define a imagem do avatar a partir do localStorage
+      }
+    };
+
+    // Adiciona um ouvinte de eventos para o input de arquivos
+    fileInput.addEventListener('change', function (event) {
+      const file = event.target.files[0]; // Obtém o primeiro arquivo selecionado
+      if (file) {
+        const reader = new FileReader(); // Cria um FileReader
+        reader.onload = function (e) {
+          userAvatar.src = e.target.result; // Altera a fonte da imagem do avatar
+          localStorage.setItem('userAvatar', e.target.result); // Armazena a nova imagem no localStorage
+        };
+        reader.readAsDataURL(file); // Lê o arquivo como URL de dados
+      }
+    });
+
+    // Adiciona um ouvinte de eventos para o formulário de configurações
+    const settingsForm = document.getElementById('settingsForm');
+    settingsForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Impede o envio do formulário
+
+      // Salva as alterações no localStorage ou onde você preferir
+      const username = document.getElementById('username').value;
+      const bio = document.getElementById('bio').value;
+
+      localStorage.setItem('username', username);
+      localStorage.setItem('bio', bio);
+
+      alert('Configurações salvas com sucesso!'); // Mensagem de sucesso
+
+
+    });
+
+    document.getElementById('settingsForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Evita que o formulário seja enviado da forma tradicional
+
+      // Obtenha os valores dos campos
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+      const bio = document.getElementById('bio').value.trim();
+
+      // Validação simples
+      let valid = true;
+
+      // Validação do nome de usuário
+      if (username === "") {
+        document.getElementById('username-error').innerText = "Nome de usuário é obrigatório.";
+        valid = false;
+      } else {
+        document.getElementById('username-error').innerText = "";
+      }
+
+      // Validação do email
+      if (email === "") {
+        document.getElementById('email-error').innerText = "Email é obrigatório.";
+        valid = false;
+      } else {
+        document.getElementById('email-error').innerText = "";
+      }
+
+      // Validação da senha
+      if (password !== confirmPassword) {
+        document.getElementById('password-error').innerText = "As senhas não coincidem.";
+        valid = false;
+      } else {
+        document.getElementById('password-error').innerText = "";
+      }
+
+      // Se todos os campos forem válidos
+      if (valid) {
+        // Aqui você pode adicionar a lógica para salvar as alterações
+        // Exemplo: Enviar os dados para um servidor, salvar no localStorage, etc.
+
+        // Simulação de mensagem de sucesso
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Redireciona para a página de feed
+        window.location.href = 'feed.html'; // Altere para o caminho correto do feed
+      }
+    });
+
+
+
+
+  </script>
+  <script>
+    document.getElementById('open_btn').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('open-sidebar');
+    });
+    // script.js
+    document.addEventListener('DOMContentLoaded', () => {
+      const navItems = document.querySelectorAll('.profile-nav li');
+      const sections = document.querySelectorAll('.profile-section');
+
+      navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          // Remover classe 'active' de todos os itens
+          navItems.forEach(nav => nav.classList.remove('active'));
+          // Adicionar classe 'active' ao item clicado
+          item.classList.add('active');
+
+          // Mostrar a seção correspondente e ocultar as outras
+          sections.forEach(section => section.style.display = 'none');
+          sections[index].style.display = 'block';
+        });
+      });
+    });
+  </script>
+
+</body>

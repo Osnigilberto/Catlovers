@@ -32,7 +32,10 @@
       <div class="sidebar_content">
 
         <div class="user">
-          <a href="profile.html"><img src="./assets/avatar.png" id="user_avatar" alt="Avatar" /></a>
+          <label for="file-input">
+            <img src="./assets/avatar.png" id="user_avatar" alt="Avatar" />
+          </label>
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
           <p id="user_infos">
             <span class="item-description"></span>
             <span class="item-description">catlovers@example.com</span>
@@ -111,11 +114,12 @@
       </div>
 
       <!-- Botão de Editar Perfil -->
-      <div class="profile-actions">
+      <!--d iv class="profile-actions">
         <button class="edit-btn">Editar Perfil</button>
-      </div>
+      </div> -->
+
       <!-- Navegação entre seções do Perfil -->
-      <div class="profile-nav">
+      <!-- <div class="profile-nav">
         <ul>
           <li class="active">
             <a href="#" data-target="posts">Posts</a>
@@ -127,35 +131,58 @@
             <a href="#" data-target="liked">Curtidos</a>
           </li>
         </ul>
-      </div>
+      </div> -->
 
-      <!-- Conteúdo das seções -->
       <div class="profile-content">
+        <button onclick="showSection('posts')">Posts</button>
+        <button onclick="showSection('saved')">Salvos</button>
+        <button onclick="showSection('liked')">Curtidos</button>
+
         <div id="posts" class="content-section active">
           <!-- Conteúdo de Posts -->
-          <p>Conteúdo de Posts aparece aqui.</p>
         </div>
         <div id="saved" class="content-section">
           <!-- Conteúdo de Salvos -->
-          <p>Conteúdo de Salvos aparece aqui.</p>
         </div>
         <div id="liked" class="content-section">
           <!-- Conteúdo de Curtidos -->
-          <p>Conteúdo de Curtidos aparece aqui.</p>
         </div>
       </div>
-      <!-- Feed de Postagens (Simples) -->
-      <div class="profile-posts">
-        <div class="post"><img src="assets/catimage.jpeg"></div>
-        <div class="post"><img src="assets/catimage1.jpeg"></div>
-        <div class="post"><img src="assets/catimage2.jpeg"></div>
-        <div class="post"><img src="assets/catimage3.jpeg"></div>
-        <div class="post"><img src="assets/profile-3.jpeg"></div>
-        <div class="post"><img src="#"></div>
+
+      <!-- Estrutura do modal -->
+      <div id="postModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+          <img id="modalImage" src="" alt="Imagem da Postagem">
+        </div>
       </div>
+
+      <!-- Feed de Postagens (Simples) -->
+      <div class="profile-posts" id="profile-posts">
+        <!-- O conteúdo será alterado via JavaScript -->
+      </div>
+
+
+      <!-- Feed de Postagens (Simples) -->
+      <div class="profile-posts" id="profile-posts">
+        <!-- O conteúdo será alterado via JavaScript -->
+      </div>
+
 
     </div>
 
+    <script>
+      // Obtém o elemento da imagem do avatar
+      const userAvatar = document.getElementById('user_avatar');
+
+      // Carrega a imagem do avatar armazenada, se existir
+      window.onload = function () {
+        const storedAvatar = localStorage.getItem('userAvatar');
+        if (storedAvatar) {
+          userAvatar.src = storedAvatar; // Define a imagem do avatar a partir do localStorage
+        }
+      };
+    </script>
 
     <script src="profile.js"></script>
     <script>
@@ -184,33 +211,7 @@
 
 
 
-    <!-- Script menu post, salvos e curtidos -->
-    <script>
-      // Pega todos os links de navegação e seções de conteúdo
-      const navLinks = document.querySelectorAll('.profile-nav a');
-      const sections = document.querySelectorAll('.content-section');
 
-      // Adiciona o evento de clique a cada link de navegação
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault(); // Previne o comportamento padrão do link
-
-          // Remove a classe 'active' de todos os links
-          navLinks.forEach(nav => nav.parentElement.classList.remove('active'));
-
-          // Adiciona a classe 'active' ao link clicado
-          link.parentElement.classList.add('active');
-
-          // Esconde todas as seções
-          sections.forEach(section => section.classList.remove('active'));
-
-          // Mostra a seção correspondente ao link clicado
-          const target = document.getElementById(link.getAttribute('data-target'));
-          target.classList.add('active');
-        });
-      });
-
-    </script>
 
   </body>
 

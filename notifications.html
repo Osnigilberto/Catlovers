@@ -17,7 +17,10 @@
     <div class="sidebar_content">
 
       <div class="user">
-        <a href="profile.html"><img src="./assets/avatar.png" id="user_avatar" alt="Avatar" /></a>
+        <label for="file-input">
+          <img src="./assets/avatar.png" id="user_avatar" alt="Avatar" />
+        </label>
+        <input type="file" id="file-input" accept="image/*" style="display: none;">
         <p id="user_infos">
           <span class="item-description"></span>
           <span class="item-description">catlovers@example.com</span>
@@ -63,3 +66,19 @@
     </button>
 
   </nav>
+  <script>
+    // Obtém o elemento da imagem do avatar
+    const userAvatar = document.getElementById('user_avatar');
+
+    // Carrega a imagem do avatar armazenada, se existir
+    window.onload = function () {
+      const storedAvatar = localStorage.getItem('userAvatar');
+      if (storedAvatar) {
+        userAvatar.src = storedAvatar; // Define a imagem do avatar a partir do localStorage
+      }
+    };
+  </script>
+
+</body>
+
+</html>

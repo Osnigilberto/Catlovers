@@ -5,216 +5,128 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catlovers - Feed</title>
+  <title>Catlovers - Profile</title>
   <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
   <link rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="feed.css" />
+  <link rel="stylesheet" href="profile.css" />
+
+
 </head>
 
 <body>
-  <!DOCTYPE html>
-  <html lang="pt-br">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catlovers - Profile</title>
-    <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
-    <link rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="profile.css" />
-  </head>
-
-  <body>
-    <nav id="sidebar">
-      <div class="sidebar_content">
-
-        <div class="user">
-          <label for="file-input">
-            <img src="./assets/avatar.png" id="user_avatar" alt="Avatar" />
-          </label>
-          <input type="file" id="file-input" accept="image/*" style="display: none;">
-          <p id="user_infos">
-            <span class="item-description"></span>
-            <span class="item-description">catlovers@example.com</span>
-          </p>
-        </div>
-
-        <ul id="side_items">
-          <li class="side-item active">
-            <a href="feed.html">
-              <i class="fa-solid fa-home"></i>
-              <span class="item-description">Home</span>
-            </a>
-          </li>
-          <li class="side-item">
-            <a href="messages.html">
-              <i class="fa-solid fa-message"></i>
-              <span class="item-description">Messages</span>
-            </a>
-          </li>
-          <li class="side-item">
-            <a href="notifications.html">
-              <i class="fa-solid fa-bell"></i>
-              <span class="item-description">Notification</span>
-            </a>
-          </li>
-          <li class="side-item">
-            <a href="friends.html">
-              <i class="fa-solid fa-user-group"></i>
-              <span class="item-description">Friends</span>
-            </a>
-          </li>
-
-          <li class="side-item">
-            <a href="settings.html">
-              <i class="fa-solid fa-gear"></i>
-              <span class="item-description">Settings</span>
-            </a>
-          </li>
-        </ul>
+  <nav id="sidebar">
+    <div class="sidebar_content">
+      <ul id="side_items">
+        <li class="side-item active">
+          <a href="feed.html">
+            <i class="fa-solid fa-home"></i>
+            <span class="item-description">Home</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">Profile</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="messages.html">
+            <i class="fa-solid fa-message"></i>
+            <span class="item-description">Messages</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="notifications.html">
+            <i class="fa-solid fa-bell"></i>
+            <span class="item-description">Notification</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button id="open_btn">
+      <i id="open_btn_icon" class="fa-solid fa-cat"></i>
+    </button>
+  </nav>
+  <!--Começo do profile parte superior aonde fica avatar,nome, bio...-->
+  <div class="profile-header">
+    <div class="row">
+      <div class="main-center">
+        <img src="assets/avatar.png" alt="User Profile Picture" class="profile-pic">
+        <button class="edit-profile-btn" onclick="openModal()"><i class="fa-solid fa-pen-to-square"></i></button>
       </div>
-      <button id="open_btn">
-        <i id="open_btn_icon" class="fa-solid fa-cat"></i>
-      </button>
-
-    </nav>
-
-    <div class="profile-container">
-      <!-- Avatar do usuário -->
-      <div class="profile-header">
-        <div class="avatar-container">
-          <img src="./assets/avatar.png" alt="Avatar" class="avatar">
-          <button class="edit-photo-btn">
-            <i class="fa fa-plus"></i>
-          </button>
-          <input type="file" id="file-input" accept="image/*" style="display: none;">
-        </div>
-        <h1 class="username">Nome do Usuário</h1>
-        <p class="bio">Aqui vai uma bio simples e curta sobre o usuário.</p>
-      </div>
-
-      <!-- Estatísticas de Seguidores/Seguindo -->
-      <div class="profile-stats">
-        <div class="stat">
-          <strong>200</strong>
-          <span>Seguidores</span>
-        </div>
-        <div class="stat">
-          <strong>180</strong>
-          <span>Seguindo</span>
-        </div>
-        <div class="stat">
-          <strong>120</strong>
-          <span>Postagens</span>
-        </div>
-
-      </div>
-
-      <!-- Botão de Editar Perfil -->
-      <!--d iv class="profile-actions">
-        <button class="edit-btn">Editar Perfil</button>
-      </div> -->
-
-      <!-- Navegação entre seções do Perfil -->
-      <!-- <div class="profile-nav">
-        <ul>
-          <li class="active">
-            <a href="#" data-target="posts">Posts</a>
-          </li>
-          <li>
-            <a href="#" data-target="saved">Salvos</a>
-          </li>
-          <li>
-            <a href="#" data-target="liked">Curtidos</a>
-          </li>
-        </ul>
-      </div> -->
-
-      <div class="profile-content">
-        <button onclick="showSection('posts')">Posts</button>
-        <button onclick="showSection('saved')">Salvos</button>
-        <button onclick="showSection('liked')">Curtidos</button>
-
-        <div id="posts" class="content-section active">
-          <!-- Conteúdo de Posts -->
-        </div>
-        <div id="saved" class="content-section">
-          <!-- Conteúdo de Salvos -->
-        </div>
-        <div id="liked" class="content-section">
-          <!-- Conteúdo de Curtidos -->
-        </div>
-      </div>
-
-      <!-- Estrutura do modal -->
-      <div id="postModal" class="modal">
-        <span class="close">&times;</span>
+      <!-- Modal -->
+      <div id="editModal" class="modal">
         <div class="modal-content">
-          <img id="modalImage" src="" alt="Imagem da Postagem">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Editar Perfil</h2>
+          <form id="editProfileForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" value="">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password">
+            <label for="confirm-password">Confirmar Senha:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <label for="profilePic">Imagem de Perfil:</label>
+            <input type="file" id="profilePic" name="profilePic" accept="image/*">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4" cols="50" maxlength="150"></textarea>
+            <p><span id="charCount">150</span> caracteres restantes</p>
+            <button class="btn-edit" type="submit">Salvar</button>
+          </form>
         </div>
       </div>
-
-      <!-- Feed de Postagens (Simples) -->
-      <div class="profile-posts" id="profile-posts">
-        <!-- O conteúdo será alterado via JavaScript -->
+      <div class="main-center">
+        <div class="profile-info">
+          <h1>Catlovers</h1>
+          <p>Catlovers é uma rede social voltada para donos de gatos de estimação. O objetivo da plataforma é permitir que os usuários criem perfis para seus gatos, compartilhem vídeos, fotos, stories e interajam com outros donos de gatos por meio de postagens, amizade e mensagens.</p>
+        </div>
       </div>
-
-
-      <!-- Feed de Postagens (Simples) -->
-      <div class="profile-posts" id="profile-posts">
-        <!-- O conteúdo será alterado via JavaScript -->
+      <div class="stats-item-btn">
+        <div class="stat-btn">
+          <a href="#">
+            <span class="stat-number">150</span>Seguidores</a>
+        </div>
+        <div class="stat-btn">
+          <a href="#">
+            <span class="stat-number">200</span>Seguindo</a>
+        </div>
+        <div class="stat-btn">
+          <a href="#">
+            <span class="stat-number">50</span>Publicações</a>
+        </div>
       </div>
-
 
     </div>
+    <!--Feed-->
+    <div class="profile-feed">
+      <div class="post">
+        <img src="assets/catimage.jpeg" alt="">
+      </div>
+      <div class="post">
+        <img src="assets/catimage1.jpeg" alt="">
+      </div>
+      <div class="post">
+        <img src="assets/catimage2.jpeg" alt="">
+      </div>
+      <div class="post">
+        <img src="assets/catimage3.jpeg" alt="">
+      </div>
+      <div class="post">
+        <img src="assets/profile-3.jpeg" alt="">
+      </div>
+    </div>
 
-    <script>
-      // Obtém o elemento da imagem do avatar
-      const userAvatar = document.getElementById('user_avatar');
+  </div>
+  <script src="profile.js"></script>
+</body>
 
-      // Carrega a imagem do avatar armazenada, se existir
-      window.onload = function () {
-        const storedAvatar = localStorage.getItem('userAvatar');
-        if (storedAvatar) {
-          userAvatar.src = storedAvatar; // Define a imagem do avatar a partir do localStorage
-        }
-      };
-    </script>
-
-    <script src="profile.js"></script>
-    <script>
-      document.getElementById('open_btn').addEventListener('click', function () {
-        document.getElementById('sidebar').classList.toggle('open-sidebar');
-      });
-      // script.js
-      document.addEventListener('DOMContentLoaded', () => {
-        const navItems = document.querySelectorAll('.profile-nav li');
-        const sections = document.querySelectorAll('.profile-section');
-
-        navItems.forEach((item, index) => {
-          item.addEventListener('click', () => {
-            // Remover classe 'active' de todos os itens
-            navItems.forEach(nav => nav.classList.remove('active'));
-            // Adicionar classe 'active' ao item clicado
-            item.classList.add('active');
-
-            // Mostrar a seção correspondente e ocultar as outras
-            sections.forEach(section => section.style.display = 'none');
-            sections[index].style.display = 'block';
-          });
-        });
-      });
-    </script>
-
-
-
-
-
-  </body>
-
-
-
-  </html>
+</html>

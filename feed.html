@@ -15,23 +15,17 @@
 <body>
   <nav id="sidebar">
     <div class="sidebar_content">
-
-      <div class="user">
-        <label for="file-input">
-          <img src="./assets/avatar.png" id="user_avatar" alt="Avatar" />
-        </label>
-        <input type="file" id="file-input" accept="image/*" style="display: none;">
-        <p id="user_infos">
-          <span class="item-description"></span>
-          <span class="item-description">catlovers@example.com</span>
-        </p>
-      </div>
-
       <ul id="side_items">
         <li class="side-item active">
           <a href="feed.html">
             <i class="fa-solid fa-home"></i>
             <span class="item-description">Home</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">Profile</span>
           </a>
         </li>
         <li class="side-item">
@@ -46,13 +40,6 @@
             <span class="item-description">Notification</span>
           </a>
         </li>
-        <li class="side-item">
-          <a href="friends.html">
-            <i class="fa-solid fa-user-group"></i>
-            <span class="item-description">Friends</span>
-          </a>
-        </li>
-
         <li class="side-item">
           <a href="settings.html">
             <i class="fa-solid fa-gear"></i>
@@ -71,13 +58,6 @@
     <div class="wrapper">
       <div class="main-center">
         <div class="topo-wrapper">
-
-          <div class="profile-card">
-            <div class="profile-pic">
-              <img src="assets/logocatlovers.png" alt="" />
-            </div>
-
-          </div>
 
           <!--SEARCH BAR-->
           <div class="search-bar">
@@ -166,70 +146,29 @@
     </div>
     </div>
   </main>
-  <script>
-    // Obtém o elemento da imagem do avatar
-    const userAvatar = document.getElementById('user_avatar');
-
-    // Carrega a imagem do avatar armazenada, se existir
-    window.onload = function () {
-      const storedAvatar = localStorage.getItem('userAvatar');
-      if (storedAvatar) {
-        userAvatar.src = storedAvatar; // Define a imagem do avatar a partir do localStorage
-      }
-    };
-  </script>
 
   <script>
-
-    //open btn menu
     document.getElementById('open_btn').addEventListener('click', function () {
       document.getElementById('sidebar').classList.toggle('open-sidebar');
     });
-    //criar post
-    app.post('/posts', async (req, res) => {
-      const { userId, content } = req.body;
+    // script.js
+    document.addEventListener('DOMContentLoaded', () => {
+      const navItems = document.querySelectorAll('.profile-nav li');
+      const sections = document.querySelectorAll('.profile-section');
 
-      try {
-        const result = await pool.query(
-          'INSERT INTO posts (user_id, content) VALUES ($1, $2) RETURNING *',
-          [userId, content]
-        );
-        res.status(201).json(result.rows[0]);
-      } catch (err) {
-        res.status(500).json({ error: 'Erro ao criar o post.' });
-      }
+      navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          // Remover classe 'active' de todos os itens
+          navItems.forEach(nav => nav.classList.remove('active'));
+          // Adicionar classe 'active' ao item clicado
+          item.classList.add('active');
+
+          // Mostrar a seção correspondente e ocultar as outras
+          sections.forEach(section => section.style.display = 'none');
+          sections[index].style.display = 'block';
+        });
+      });
     });
-
-    //Adicionar amigo
-    app.post('/add-friend', async (req, res) => {
-      const { userId, friendId } = req.body;
-
-      try {
-        await pool.query(
-          'INSERT INTO friendships (user_id, friend_id, status) VALUES ($1, $2, $3)',
-          [userId, friendId, 'pending']
-        );
-        res.status(201).json({ message: 'Solicitação de amizade enviada.' });
-      } catch (err) {
-        res.status(500).json({ error: 'Erro ao adicionar amigo.' });
-      }
-    });
-
-    //Aceitar amizade
-    app.post('/accept-friend', async (req, res) => {
-      const { userId, friendId } = req.body;
-
-      try {
-        await pool.query(
-          'UPDATE friendships SET status = $1 WHERE user_id = $2 AND friend_id = $3',
-          ['accepted', friendId, userId]
-        );
-        res.status(200).json({ message: 'Amizade aceita.' });
-      } catch (err) {
-        res.status(500).json({ error: 'Erro ao aceitar amizade.' });
-      }
-    });
-
   </script>
 </body>
 

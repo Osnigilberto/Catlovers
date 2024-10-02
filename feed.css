@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,19 +7,19 @@
   -webkit-font-smoothing: antialiased; /*suavizando as fontes*/
   -moz-osx-font-smoothing: grayscale; /*suavizando as fontes*/
 }
-body{
+body {
   display: flex;
   min-height: 100vh;
   background-color: #efefef;
 }
-main{
+main {
   width: 100%;
   padding: 20px;
-  display:flex;
+  display: flex;
   justify-content: center;
   margin-top: 0px;
 }
-.wrapper{
+.wrapper {
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
@@ -33,12 +33,11 @@ main{
   grid-template-columns: 60% 50%;
   grid-gap: 30px;*/
 }
-.main-center{
+.main-center {
   display: flex;
   flex-direction: column;
-  
 }
-.stories-wrapper{
+.stories-wrapper {
   width: 100%;
   height: 120px;
   background: #fff;
@@ -52,10 +51,10 @@ main{
   overflow-x: auto;
   margin-top: 20px;
 }
-.stories-wrapper::-webkit-scrollbar{
+.stories-wrapper::-webkit-scrollbar {
   display: none;
 }
-.stories-card{
+.stories-card {
   flex: 0 0 auto;
   width: 80px;
   max-width: 80px;
@@ -64,7 +63,7 @@ main{
   align-items: center;
   margin-right: 15px;
 }
-.profile-pic{
+.profile-pic {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -72,14 +71,14 @@ main{
   padding: 3px;
   background: linear-gradient(45deg, rgba(255, 230, 0), rgba(255, 0, 120) 80%);
 }
-.profile-pic img{
+.profile-pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #fff;
 }
-.username{
+.username {
   width: 100%;
   overflow: hidden;
   text-align: center;
@@ -88,14 +87,14 @@ main{
   color: #1e293b;
 }
 
-.post{
+.post {
   width: 100%;
   height: 600px;
   background: #fff;
   border: 1px solid #dfdfdf;
   margin-top: 10px;
 }
-.info{
+.info {
   width: 100%;
   height: 60px;
   display: flex;
@@ -103,68 +102,69 @@ main{
   align-items: center;
   padding: 0 20px;
 }
-.info .username{
+.info .username {
   width: auto;
   font-weight: bold;
   font-size: 14px;
   color: #000;
   margin-left: 10px;
 }
-.info .options{
+.info .options {
   height: 10px;
   cursor: pointer;
 }
-.info .user{
+.info .user {
   display: flex;
   align-items: center;
 }
-.info .profile-pic{
+.info .profile-pic {
   width: 50px;
   height: 50px;
   padding: 0;
   background: none;
 }
-.info .profile-pic img{
+.info .profile-pic img {
   border: none;
 }
-.post-image{
+.post-image {
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
-.post-content{
+.post-content {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
 }
-.likes{
+.likes {
   font-weight: bold;
 }
-.description{
+.description {
   margin: 10px 0;
   font-size: 14px;
   line-height: 20px;
 }
-.description span{
+.description span {
   font-weight: bold;
   margin-right: 10px;
 }
-.post-time{
-  color: rgba(0,0,0,0.5);
+.post-time {
+  color: rgba(0, 0, 0, 0.5);
   font-size: 12px;
 }
-.comment-wrapper{
+.comment-wrapper {
   width: 100%;
   height: 50px;
   border-radius: 1px solid #dfdfdf;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: -10px;
 }
-.comment-wrapper .icon{
+.comment-wrapper .icon {
   height: 30px;
   border-radius: 50%;
 }
-.comment-box{
+.comment-box {
   width: 80%;
   height: 23px;
   border: 1px solid #ffdead;
@@ -174,21 +174,21 @@ main{
   font-size: 13px;
   margin-top: 0px;
 }
-.comment-btn{
-    width: 40px;
-    height: 20px;
-    border: 1px solid RGBA(0, 0, 0, 1);
-    outline: none;
-    text-transform: capitalize;
-    font-size: 16px;
-    color: RGBA(0, 0, 0, 1);
-    border-radius: 20%;
-    background: none;
-    opacity: 0.5;
+.comment-btn {
+  width: 40px;
+  height: 20px;
+  border: 1px solid RGBA(0, 0, 0, 1);
+  outline: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  color: RGBA(0, 0, 0, 1);
+  border-radius: 20%;
+  background: none;
+  opacity: 0.5;
 }
 
 .logout-btn,
-.follow-btn{
+.follow-btn {
   width: 70px;
   height: 100%;
   background: none;
@@ -196,41 +196,40 @@ main{
   outline: none;
   text-transform: capitalize;
   font-size: 16px;
-  color: rgba(0,162,255);
+  color: rgba(0, 162, 255);
   opacity: 0.5;
 }
-.reaction-wrapper{
+.reaction-wrapper {
   width: 100%;
   height: 50px;
   display: flex;
-  margin-top: -20px;
+  margin-top: -25px;
+  margin-bottom: -22px;
   align-items: center;
 }
-.reaction-wrapper .icon{
+.reaction-wrapper .icon {
   height: 30px;
   margin: 0;
   margin-right: 20px;
 }
 
 /*SIDEBAR DIREITA*/
-.topo-wrapper{
+.topo-wrapper {
   padding: 20px;
   width: 100%;
   height: 100px;
   background-color: #fff;
-  margin-top: 20px;
   display: flex;
-  
 }
 .profile-card,
-.suggestion-card{
+.suggestion-card {
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
-.profile-card .profile-pic{
+.profile-card .profile-pic {
   flex: 0 0 auto;
   padding: 0;
   background: none;
@@ -238,19 +237,18 @@ main{
   height: 50px;
   margin-right: 10px;
 }
-.profile-card .profile-pic img{
+.profile-card .profile-pic img {
   border: none;
-  
 }
 .profile-card .username,
-.suggestion-card .username{
+.suggestion-card .username {
   font-weight: 500px;
   font-size: 14px;
   color: #000;
   margin-bottom: 0;
 }
 .profile-card .sub-text,
-.suggestion-card .sub-text{
+.suggestion-card .sub-text {
   color: #000;
   font-size: 12px;
   font-weight: 500;
@@ -258,33 +256,32 @@ main{
   margin-bottom: 0;
 }
 .logout-btn,
-.follow-btn{
-  opacity: 1;
-    font-weight: 700;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    margin-top: 20px;
-    margin-left: 50px;
-    border: none;
-    border-radius: 5px;
-    width: 100px;
-    height: 20px;
-}
-.publicar-btn{
+.follow-btn {
   opacity: 1;
   font-weight: 700;
   font-size: 12px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 50px;
   border: none;
   border-radius: 5px;
   width: 100px;
   height: 20px;
 }
-.suggestion-card .suggestion-pic{
+.publicar-btn {
+  opacity: 1;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  width: 100px;
+  height: 20px;
+}
+.suggestion-card .suggestion-pic {
   flex: 0 0;
   padding: 0;
   background: none;
@@ -292,20 +289,20 @@ main{
   height: 50px;
   margin-right: 10px;
 }
-.suggestion-card .suggestion-pic img{
+.suggestion-card .suggestion-pic img {
   border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-.suggestion-text{
+.suggestion-text {
   font-size: 14px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   font-weight: 700;
   margin: 20px;
 }
 
-.search-bar{
+.search-bar {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -313,11 +310,10 @@ main{
   padding: 0 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: 10px;
 }
 
-.search-bar input{
+.search-bar input {
   width: 50%;
   padding: 0 5px;
   border: none;
@@ -326,101 +322,62 @@ main{
   color: #000;
   margin-left: 10px;
   border-radius: 30px;
-  border: 2px solid rgba(0,162,255);
-  transition: all .2s ease-in-out;
+  border: 2px solid rgba(0, 162, 255);
+  transition: all 0.2s ease-in-out;
 }
 
-
 /*SIDEBAR LATERAL ESQUERDO*/
-#sidebar{
+#sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #f8f9fa;
-  height:330px;
+  height: 260px;
   border-radius: 0px 18px 18px 0px;
   position: relative;
-  transition: all .5s;
+  transition: all 0.5s;
   min-width: 82px;
   margin-top: 40px;
 }
-#siderbar_content{
+#siderbar_content {
   padding: 12px;
 }
-#user{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-#user_avatar{
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-#user_infos{
-  display: flex;
-  flex-direction: column;
-}
-#user_infos span :last-child{
-  color: #efefef;
-  font-size: 14px;
-}
-#side_items{
+#side_items {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
-.side-item{
+.side-item {
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
 }
-.side-item.active{
+.side-item.active {
   background-color: #1e293b;
 }
 
-.side-item:hover:not(.active),
-#logout_btn:hover{
+.side-item:hover:not(.active) {
   background-color: #1e293b;
 }
-.side-item a{
+.side-item a {
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
 }
-.side-item.active a{
+.side-item.active a {
   color: black;
 }
-.side-item a i{
+.side-item a i {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
 }
-#logout{
-  border-top: 1px solid #1e293b;
-  padding: 12px;
-}
-#logout_btn{
-  border: none;
-  padding: 12px;
-  font-size: 14px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  border-radius: 50%;
-  text-align: start;
-  cursor: pointer;
-  background-color: #1e293b;
-}
-#open_btn{
+#open_btn {
   position: absolute;
   top: 30px;
   right: -10px;
@@ -432,14 +389,13 @@ main{
   border: none;
   cursor: pointer;
 }
-#open_btn_icon{
-  transition: transform .6s ease;
+#open_btn_icon {
+  transition: transform 0.6s ease;
 }
-.open-sidebar #open_btn_icon{
+.open-sidebar #open_btn_icon {
   transform: rotate(360deg);
-  
 }
-.item-description{
+.item-description {
   width: 0;
   overflow: hidden;
   white-space: nowrap;
@@ -447,13 +403,13 @@ main{
   font-size: 14px;
   transition: width 0.5s ease;
 }
-#sidebar.open-sidebar{
+#sidebar.open-sidebar {
   min-width: 15%;
 }
-#sidebar.open-sidebar.item-description{
+#sidebar.open-sidebar.item-description {
   width: 100%;
 }
-#sidebar.open-sidebar.side-item a{
+#sidebar.open-sidebar.side-item a {
   justify-content: flex-start;
   gap: 14px;
 }
@@ -467,7 +423,7 @@ main{
     padding: 10px;
     overflow-x: hidden;
   }
-  .main-center{
+  .main-center {
     margin: 0;
     padding: 0;
     flex-direction: column;
@@ -475,7 +431,7 @@ main{
     align-items: center;
     justify-content: center;
   }
-  .search-bar{
+  .search-bar {
     width: 100%;
     height: 50px;
     border-radius: 5px;
@@ -497,16 +453,15 @@ main{
     margin-top: -35px;
     border-radius: 30px;
     border: 2px solid rgba(0, 162, 255);
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     justify-content: center;
-}
-.logout-btn{
-  display: none;
-}
-.fa-solid.fa-search{
-  display: none;
-}
-
+  }
+  .logout-btn {
+    display: none;
+  }
+  .fa-solid.fa-search {
+    display: none;
+  }
 
   .wrapper {
     width: 100%;
@@ -515,11 +470,10 @@ main{
     margin-left: 40px;
     margin-bottom: auto;
   }
-  .topo-wrapper{
+  .topo-wrapper {
     height: 50px;
     margin-top: 10px;
   }
-  
 
   .stories-wrapper {
     width: 100%;
@@ -542,8 +496,12 @@ main{
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
-    background: linear-gradient(45deg, rgba(255, 230, 0), rgba(255, 0, 120) 80%);
-}
+    background: linear-gradient(
+      45deg,
+      rgba(255, 230, 0),
+      rgba(255, 0, 120) 80%
+    );
+  }
 
   .stories-card {
     width: 60px;
@@ -551,10 +509,7 @@ main{
     margin-right: 10px;
     flex: 0 0 auto;
     height: 60px;
-
   }
-
-  
 
   .post {
     height: auto;
@@ -564,12 +519,12 @@ main{
   .post-image {
     height: 265px;
   }
-  .post-content{
+  .post-content {
     height: auto;
     margin-top: 10px;
     margin-left: -15px;
   }
-  .info .username{
+  .info .username {
     width: auto;
     font-weight: bold;
     font-size: 11px;
@@ -578,20 +533,19 @@ main{
     margin-top: 0px;
   }
 
-  .reaction-wrapper{
+  .reaction-wrapper {
     margin-top: 15px;
     height: 0;
   }
-  .likes{
+  .likes {
     margin-right: 10px;
     margin-bottom: 10px;
     display: flex;
     gap: 5px;
     align-items: center;
-
   }
 
-  .info .profile-pic{
+  .info .profile-pic {
     width: 40px;
     height: 40px;
     margin-left: -19px;
@@ -618,17 +572,17 @@ main{
     width: 40px;
     border-radius: 0px 18px 18px 0px;
     position: relative;
-    transition: all .5s;
+    transition: all 0.5s;
     min-width: 0;
-    background-color: RGBA( 0, 0, 0, 1 );
+    background-color: RGBA(0, 0, 0, 1);
     margin-top: 6px;
     position: fixed;
   }
-  .side-item a i{
+  .side-item a i {
     font-weight: 900;
-    color: RGBA( 255, 222, 173, 1 );
-}
-  .publicar-btn{
+    color: RGBA(255, 222, 173, 1);
+  }
+  .publicar-btn {
     display: fixed;
     margin-top: -2px;
     margin-left: 0px;
@@ -636,14 +590,14 @@ main{
     border: none;
     border-radius: 30px;
     font-size: 12px;
-    color: RGBA( 255, 222, 173, 1 );
+    color: RGBA(255, 222, 173, 1);
     cursor: pointer;
     justify-content: space-evenly;
     align-content: center;
     align-items: center;
-    background: RGBA( 0, 0, 0, 1 );
+    background: RGBA(0, 0, 0, 1);
   }
-  #user_avatar{
+  #user_avatar {
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -653,7 +607,4 @@ main{
     margin-top: 10px;
     cursor: pointer;
   }
-  
-  
-
 }

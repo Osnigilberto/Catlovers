@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catlovers - Mensanges</title>
+  <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
+  <link rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="messages.css" />
+</head>
+
+<body>
+  <nav id="sidebar">
+    <div class="sidebar_content">
+      <ul id="side_items">
+        <li class="side-item active">
+          <a href="feed.html">
+            <i class="fa-solid fa-home"></i>
+            <span class="item-description">Home</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">Profile</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="messages.html">
+            <i class="fa-solid fa-message"></i>
+            <span class="item-description">Messages</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="notifications.html">
+            <i class="fa-solid fa-bell"></i>
+            <span class="item-description">Notification</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button id="open_btn">
+      <i id="open_btn_icon" class="fa-solid fa-cat"></i>
+    </button>
+  </nav>
+  <div class="container">
+    <div class="menu">
+      <div class="header">
+        <h2>Contatos</h2>
+        <button id="new-message-button"><i class="fa-solid fa-pen-to-square"></i></button>
+      </div>
+      <input type="text" placeholder="Pesquisar...">
+      <ul class="contact-list">
+        <li class="contact active" onclick="selectContact('Maria')">
+          <img src="assets/profile-1.jpeg" alt="Gato 1">
+          <span>Maria</span>
+          <span class="unread">2</span>
+        </li>
+        <li class="contact" onclick="selectContact('João')">
+          <img src="assets/profile-2.jpeg" alt="Gato 2">
+          <span>João</span>
+          <span class="unread">1</span>
+        </li>
+        <li class="contact" onclick="selectContact('Ana')">
+          <img src="assets/profile-3.jpeg" alt="Gato 3">
+          <span>Ana</span>
+        </li>
+        <!-- Adicione mais contatos conforme necessário -->
+      </ul>
+
+    </div>
+
+    <!-- Modal para nova mensagem -->
+    <div id="new-message-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Enviar Nova Mensagem</h2>
+        <input type="text" id="recipient" placeholder="Para:">
+        <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+        <button id="send-message">Enviar</button>
+      </div>
+    </div>
+
+    <div class="chat">
+      <div class="chat-header">
+        <h3 id="contact-name">Selecione um contato</h3>
+      </div>
+      <div class="messages" id="message-container">
+        <!-- Mensagens aparecerão aqui -->
+      </div>
+      <div class="message-input">
+        <input type="text" id="input-message" placeholder="Digite sua mensagem...">
+        <button id="send-button">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="messages.js"></script>
+</body>
+
+</html>

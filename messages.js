@@ -184,35 +184,4 @@ document
     }
   })
 
-  // Seleciona um GIF (aqui você pode integrar uma API de GIFs, como Giphy)
-document.getElementById('gif-button').onclick = function() {
-    // Lógica para abrir um seletor de GIFs (ex: usando a API do Giphy)
-    alert('Implementar seleção de GIFs');
-};
-
-// Seleciona um emoji
-document.getElementById('emoji-button').onclick = function() {
-    const emoji = prompt('Digite um emoji:'); // Aqui você pode usar um seletor de emojis
-    sendMessage(emoji);
-};
-
-// Envio de arquivo
-document.getElementById('file-button').onclick = function() {
-    document.getElementById('file-input').click(); // Abre o seletor de arquivos
-};
-
-document.getElementById('file-input').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const message = `Arquivo enviado: ${file.name}`;
-        sendMessage(message); // Envie uma mensagem com o nome do arquivo
-        // Aqui você pode implementar lógica para enviar o arquivo para um servidor, se necessário
-    }
-});
-// Adicione o evento de clique aos contatos
-document.querySelectorAll(".contact").forEach((contact) => {
-  contact.addEventListener("click", () => {
-    const contactName = contact.querySelector("span").innerText
-    selectContact(contactName)
-  })
-})
+ 

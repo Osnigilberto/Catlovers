@@ -35,7 +35,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O projeto é para poder mostrar meu portfólio.
+Catlovers, uma rede social para amantes de gatos que permite postagens, amigos, mensagens, e possui funcionalidades como modo claro/escuro e Web3.js(EM BREVE).
+Com páginas de perfil, mensagens, notificações e configurações.
+Back-end está em desenvolvimento.
 
 ## :memo: Licença
 

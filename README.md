@@ -16,7 +16,7 @@ Catlovers é uma rede social voltada para donos de gatos de estimação. O objet
   <img alt="Portfólio" src="/assets/index-response.png">
   <img alt="Portfólio" src="/assets/feed-response.png">
   <img alt="Portfólio" src="/assets/index-smp.png">
-  <img alt="Portfólio" src="/assets/feded-smp.png">
+  <img alt="Portfólio" src="/assets/feeed-smp.png">
   
   
 </p>

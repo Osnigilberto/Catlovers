@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catlovers - Mensanges</title>
+  <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
+  <link rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="notifications.css" />
+</head>
+
+<body>
+  <nav id="sidebar">
+    <div class="sidebar_content">
+      <ul id="side_items">
+        <li class="side-item active">
+          <a href="feed.html">
+            <i class="fa-solid fa-home"></i>
+            <span class="item-description">Home</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">Profile</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="messages.html">
+            <i class="fa-solid fa-message"></i>
+            <span class="item-description">Messages</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="notifications.html">
+            <i class="fa-solid fa-bell"></i>
+            <span class="item-description">Notification</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button id="open_btn">
+      <i id="open_btn_icon" class="fa-solid fa-cat"></i>
+    </button>
+  </nav>
+  <div class="notifications-container">
+    <h1>Notificações</h1>
+    <ul class="notification-list">
+      <!-- Notificação de curtida -->
+      <li class="notification-item" onclick="openModal('modal1')">
+        <a href="#" class="notification-link">
+          <img src="assets/profile-1.jpeg" alt="Avatar" class="notification-avatar">
+          <div class="notification-details">
+            <p><strong>@usuario1</strong> curtiu sua foto.</p>
+            <span class="notification-time">2m</span>
+          </div>
+          <img src="assets/catimage3.jpeg" alt="Miniatura" class="notification-thumbnail">
+        </a>
+      </li>
+      <!-- Notificação de comentário -->
+      <li class="notification-item" onclick="openModal('modal2')">
+        <a href="#" class="notification-link">
+          <img src="assets/profile-2.jpeg" alt="Avatar" class="notification-avatar">
+          <div class="notification-details">
+            <p><strong>@usuario2</strong> comentou no seu post.</p>
+            <span class="notification-time">1h</span>
+          </div>
+          <img src="assets/catimage2.jpeg" alt="Miniatura" class="notification-thumbnail">
+        </a>
+      </li>
+      <!-- Notificação de novo seguidor -->
+      <li class="notification-item" onclick="openModal('modal3')">
+        <a href="#" class="notification-link">
+          <img src="assets/profile-3.jpeg" alt="Avatar" class="notification-avatar">
+          <div class="notification-details">
+            <p><strong>@usuario3</strong> começou a seguir você.</p>
+            <span class="notification-time">1d</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Modais -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <p>Você curtiu a foto de @usuario1</p>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <p>Você comentou no post de @usuario2</p>
+    </div>
+  </div>
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <p>@usuario3 começou a seguir você.</p>
+    </div>
+  </div>
+  
+  <script>
+    // Funções para abrir e fechar modais
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+  </script>
+  <script>
+    document.getElementById("open_btn").addEventListener("click", function () {
+        document.getElementById("sidebar").classList.toggle("open-sidebar")
+      })
+      // script.js
+      document.addEventListener("DOMContentLoaded", () => {
+        const navItems = document.querySelectorAll(".profile-nav li")
+        const sections = document.querySelectorAll(".profile-section")
+
+        navItems.forEach((item, index) => {
+          item.addEventListener("click", () => {
+            // Remover classe 'active' de todos os itens
+            navItems.forEach((nav) => nav.classList.remove("active"))
+            // Adicionar classe 'active' ao item clicado
+            item.classList.add("active")
+
+            // Mostrar a seção correspondente e ocultar as outras
+            sections.forEach((section) => (section.style.display = "none"))
+            sections[index].style.display = "block"
+          })
+        })
+      })
+  </script>
+</body>
+
+</html>

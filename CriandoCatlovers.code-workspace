@@ -1,0 +1,29 @@
+{
+  "folders": [
+	{
+		"name": "CriandoCatlovers",
+		"path": "."
+	},
+	{
+		"name": ".vscode",
+		"path": "../telainicial/catlovers/.vscode"
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "CriandoCatlovers",
+    "sqltools.connections": [
+      {
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 5432,
+        "driver": "PostgreSQL",
+        "name": "Catlovers",
+        "database": "catlovers",
+        "username": "postgres",
+        "password": "142536",
+        "connectionTimeout": 30
+      }
+    ]
+  }
+}

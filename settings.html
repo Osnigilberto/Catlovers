@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catlovers - Mensanges</title>
+  <link rel="icon" href="assets/favicon2.png" type="image/x-icon">
+  <link rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a1d4c0f36c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+
+<body>
+  <nav id="sidebar">
+    <div class="sidebar_content">
+      <ul id="side_items">
+        <li class="side-item active">
+          <a href="feed.html">
+            <i class="fa-solid fa-home"></i>
+            <span class="item-description">Home</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">Profile</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="messages.html">
+            <i class="fa-solid fa-message"></i>
+            <span class="item-description">Messages</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="notifications.html">
+            <i class="fa-solid fa-bell"></i>
+            <span class="item-description">Notification</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button id="open_btn">
+      <i id="open_btn_icon" class="fa-solid fa-cat"></i>
+    </button>
+  </nav>
+
+  <div class="settings-container">
+    <h1>Configurações</h1>
+    <form id="settingsForm">
+      <div class="settings-section">
+        <h2>Notificações</h2>
+        <label for="emailNotifications">Receber notificações por e-mail:</label>
+        <input type="checkbox" id="emailNotifications" name="emailNotifications">
+
+        <label for="pushNotifications">Receber notificações push:</label>
+        <input type="checkbox" id="pushNotifications" name="pushNotifications">
+      </div>
+
+      <div class="settings-section">
+        <h2>Privacidade</h2>
+        <label for="privateProfile">Tornar perfil privado:</label>
+        <input type="checkbox" id="privateProfile" name="privateProfile">
+
+        <label for="messageRequests">Permitir solicitações de mensagem:</label>
+        <input type="checkbox" id="messageRequests" name="messageRequests">
+      </div>
+
+      <div class="settings-section">
+        <h2>Preferências de Conteúdo</h2>
+        <label for="contentLanguage">Idioma do conteúdo:</label>
+        <select id="contentLanguage" name="contentLanguage">
+          <option value="pt">Português</option>
+          <option value="en">Inglês</option>
+          <!-- Adicione mais opções de idiomas conforme necessário -->
+        </select>
+
+        <label for="showMatureContent">Mostrar conteúdo sensível/maduro:</label>
+        <input type="checkbox" id="showMatureContent" name="showMatureContent">
+      </div>
+
+      <button type="submit">Salvar alterações</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("open_btn").addEventListener("click", function () {
+      document.getElementById("sidebar").classList.toggle("open-sidebar")
+    })
+    // script.js
+    document.addEventListener("DOMContentLoaded", () => {
+      const navItems = document.querySelectorAll(".profile-nav li")
+      const sections = document.querySelectorAll(".profile-section")
+
+      navItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          // Remover classe 'active' de todos os itens
+          navItems.forEach((nav) => nav.classList.remove("active"))
+          // Adicionar classe 'active' ao item clicado
+          item.classList.add("active")
+
+          // Mostrar a seção correspondente e ocultar as outras
+          sections.forEach((section) => (section.style.display = "none"))
+          sections[index].style.display = "block"
+        })
+      })
+    })
+  </script>
+  <!-- script.js -->
+  <script src="settings.js"></script>
+</body>
+
+</html>
